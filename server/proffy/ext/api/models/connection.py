@@ -11,6 +11,10 @@ class ConnectionModel(db.Model):
         self.created_at = created_at
         self.user_id = user_id
     
+    @classmethod
+    def count_connections(cls):
+        return cls.query.count()
+
     def save_to_db(self):
         db.session.add(self)
         db.session.commit()

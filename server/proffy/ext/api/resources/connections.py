@@ -11,8 +11,9 @@ class Connections(Resource):
     body_parser.add_argument("user_id", type=int, required=True, help=BLANK_ERROR)
 
     def get(self):
-        pass
-    
+        n_connections = ConnectionModel.count_connections()
+        return {"total": n_connections}, 200
+
     def post(self):
         body_data = Connections.body_parser.parse_args()
         time_now = int(datetime.now().strftime("%Y%m%d%H%M%S"))

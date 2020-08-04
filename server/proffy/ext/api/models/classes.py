@@ -23,6 +23,10 @@ class ClassModel(db.Model):
             "user_id": self.user_id
         }
 
+    def save_to_db(self):
+        db.session.add(self)
+        db.session.commit()
+    
 
 class ClassScheduleModel(db.Model):
     __tablename__ = "classes_schedule"
@@ -31,3 +35,22 @@ class ClassScheduleModel(db.Model):
     from_hour = db.Column(db.Integer, nullable=False)
     to_hour = db.Column(db.Integer, nullable=False)
     class_id = db.Column(db.Integer, db.ForeignKey("classes.id"), nullable=False)
+    class_general = db.relationship("ClassModel")
+
+    def __init__(self, week_day, from_hour, to_hour, class_id):
+        self.week_day = week_day
+        self.from_hour = from_hour
+        self.to_hour = to_hour
+        self.class_id = class_id
+    
+    def json(self):
+        return {
+            "week_day": self.week_day,
+            "from_hour": self.from_hour,
+            "to_hour": self.to_hour,
+            "class_id": self.class_id
+        }
+    
+    def save_to_db(self):
+        db.session.add(self)
+        db.session.commit()

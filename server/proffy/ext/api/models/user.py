@@ -18,7 +18,7 @@ class UserModel(db.Model):
         self.bio = bio
 
     def json(self):
-        {
+        return {
             "id": self.id,
             "name": self.name,
             "avatar": self.avatar,

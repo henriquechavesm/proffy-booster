@@ -9,7 +9,7 @@ class UserModel(db.Model):
     whatsapp = db.Column(db.String(80), nullable=False, unique=True)
     bio = db.Column(db.String(500), nullable=False)
     classes = db.relationship("ClassModel", lazy="dynamic", cascade="all, delete-orphan")
-    # connections = db.relationship("ConnectionModel", lazy="dynamic", cascade="all, delete-orphan")
+    connections = db.relationship("ConnectionModel", lazy="dynamic", cascade="all, delete-orphan")
 
     def __init__(self, name, avatar, whatsapp, bio):
         self.name = name
@@ -24,7 +24,6 @@ class UserModel(db.Model):
             "avatar": self.avatar,
             "whatsapp": self.whatsapp,
             "bio": self.bio,
-            # "classes": [class.json() for class in self.classes]
         }
 
     @classmethod

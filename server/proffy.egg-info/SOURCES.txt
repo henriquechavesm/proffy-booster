@@ -8,8 +8,10 @@ proffy.egg-info/dependency_links.txt
 proffy.egg-info/requires.txt
 proffy.egg-info/top_level.txt
 proffy/ext/__init__.py
+proffy/ext/config.py
+proffy/ext/db.py
 proffy/ext/hooks.py
 proffy/ext/api/__init__.py
+proffy/ext/api/cors.py
 proffy/ext/api/main.py
-proffy/ext/config/__init__.py
-proffy/ext/db/__init__.py
+proffy/utils/__init__.py

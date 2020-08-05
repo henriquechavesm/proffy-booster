@@ -22,7 +22,7 @@ const TeacherForm = () => {
   const [bio, setBio] = useState("");
 
   const [subject, setSubject] = useState("");
-  const [cost, setCost] = useState(0);
+  const [cost, setCost] = useState("");
 
   const [scheduleItems, setScheduleItems] = useState([
     { week_day: 0, from_hour: "", to_hour: "" },
@@ -64,7 +64,7 @@ const TeacherForm = () => {
       whatsapp,
       bio,
       subject,
-      cost,
+      cost: Number(cost),
       schedule: scheduleItems
     }).then(() => {
       alert("Cadastro realizado com sucesso!");
@@ -154,7 +154,7 @@ const TeacherForm = () => {
               label="Custo da sua hora por aula"
               value={cost}
               onChange={(e) => {
-                setCost(Number(e.target.value));
+                setCost(e.target.value);
               }}
             />
           </fieldset>

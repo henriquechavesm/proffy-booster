@@ -36,8 +36,9 @@ const TeacherItem = () => {
         </Text>
 
         <View style={styles.buttonsContainer}>
-            <RectButton style={styles.favouriteButton}>
-                <Image source={heartOutlineIcon}/>
+            <RectButton style={[styles.favouriteButton, styles.favourited]}>
+                {/* <Image source={heartOutlineIcon}/> */}
+                <Image source={unfavouriteIcon}/>
             </RectButton>
 
             <RectButton style={styles.contactButton}>
